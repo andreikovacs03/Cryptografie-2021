@@ -1,0 +1,14 @@
+﻿using Cipher;
+using System;
+using System.IO;
+
+ICipher cipher = new Substitute("XYZABCDEFGHIJKLMNOPQRSTUVW");
+
+string hamlet = File.ReadAllText("Hamlet.txt");
+string hamletEncrypted = cipher.Encrypt(hamlet);
+Console.WriteLine(cipher.Decrypt(hamletEncrypted));
+
+Console.WriteLine();
+
+string secret = "SOWFBRKAWFCZFSBSCSBQITBKOWLBFXTBKOWLSOXSOXFZWWIBICFWUQLRXINOCIJLWJFQUNWXLFBSZXFBTXAANTQIFBFSFQUFCZFSBSCSBIMWHWLNKAXBISWGSTOXLXTSWLUQLXJBUUWLWISTBKOWLSWGSTOXLXTSWLBSJBUUWLFULQRTXWFXLTBKOWLBISOXSSOWTBKOWLXAKOXZWSBFIQSFBRKANSOWXAKOXZWSFOBUSWJBSBFTQRKAWSWANECRZAWJ";
+Console.WriteLine(cipher.Analyze(secret));
